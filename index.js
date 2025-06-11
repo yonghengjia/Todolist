@@ -9,6 +9,10 @@ const port = 3000;
 
 // 4. 中间件：中间件：自动把请求中的 JSON 数据转换为 JS 对象（否则 req.body 是 undefined）
 app.use(express.json());
+// 引入 todos 路由
+const todoRoutes = require('./routes/todos');
+app.use('/todos', todoRoutes);
+
 
 // 5. 定义一个测试用的根路由，可以用浏览器打开 http://localhost:3000/ 来测试服务器是否跑通
 app.get('/', (req, res) => {
